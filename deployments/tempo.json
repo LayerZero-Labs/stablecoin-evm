@@ -1,0 +1,16 @@
+{
+    "SignatureChecker": {
+      "contractAddress": "TODO",
+      "contractCreationTxHash": "TODO"
+    },
+    "FiatTokenV2_2": {
+      "contractAddress": "TODO",
+      "contractCreationTxHash": "TODO"
+    },
+    "FiatTokenProxy": {
+      "contractAddress": "0x20C000000000000000000000b9537d11c60E8b50",
+      "contractCreationTxHash": "0x3cb4ba9518a9b8ac0dd99c9d5d24a1357a14be761d4b672712ec1ee996cf1e1f"
+    },
+    "rpcUrl": "https://rpc.tempo.xyz"
+  }
+  
