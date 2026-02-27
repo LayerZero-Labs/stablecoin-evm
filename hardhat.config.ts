@@ -221,10 +221,6 @@ const hardhatConfig: HardhatUserConfig = {
       url: process.env.RPC_URL_TELOS_MAINNET || "https://rpc.telos.net",
       gasMultiplier,
     },
-    tempo: {
-      url: process.env.RPC_URL_TEMPO_MAINNET || "https://rpc.tempo.xyz",
-      gasMultiplier,
-    },
     xdc: {
       url: process.env.RPC_URL_XDC_MAINNET || "https://rpc1.xinfin.network",
       gasMultiplier,
