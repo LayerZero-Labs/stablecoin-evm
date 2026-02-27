@@ -72,7 +72,8 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     abstract: {
-      url: process.env.RPC_URL_ABSTRACT_MAINNET || "https://api.mainnet.abs.xyz",
+      url:
+        process.env.RPC_URL_ABSTRACT_MAINNET || "https://api.mainnet.abs.xyz",
       gasMultiplier,
     },
     ape: {
@@ -80,12 +81,13 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     apexfusionnexus: {
-      url: process.env.RPC_URL_APEXFUSIONNEXUS_MAINNET || "https://rpc.nexus.mainnet.apexfusion.org",
+      url:
+        process.env.RPC_URL_APEXFUSIONNEXUS_MAINNET ||
+        "https://rpc.nexus.mainnet.apexfusion.org",
       gasMultiplier,
     },
     bera: {
-      url: process.env.RPC_URL_BERA_MAINNET ||
-        "https://rpc.berachain-apis.com",
+      url: process.env.RPC_URL_BERA_MAINNET || "https://rpc.berachain-apis.com",
       gasMultiplier,
     },
     botanix: {
@@ -93,7 +95,9 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     camp: {
-      url: process.env.RPC_URL_CAMP_MAINNET || "https://rpc.camp.raas.gelato.cloud",
+      url:
+        process.env.RPC_URL_CAMP_MAINNET ||
+        "https://rpc.camp.raas.gelato.cloud",
       gasMultiplier,
     },
     cronos: {
@@ -109,11 +113,15 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     edu: {
-      url: process.env.RPC_URL_EDU_MAINNET || "https://rpc.edu-chain.raas.gelato.cloud",
+      url:
+        process.env.RPC_URL_EDU_MAINNET ||
+        "https://rpc.edu-chain.raas.gelato.cloud",
       gasMultiplier,
     },
     flow: {
-      url: process.env.RPC_URL_FLOW_MAINNET || "https://mainnet.evm.nodes.onflow.org",
+      url:
+        process.env.RPC_URL_FLOW_MAINNET ||
+        "https://mainnet.evm.nodes.onflow.org",
       gasMultiplier,
     },
     fuse: {
@@ -121,7 +129,9 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     gatelayer: {
-      url: process.env.RPC_URL_GATELAYER_MAINNET || "https://gatelayer-mainnet.gatenode.cc",
+      url:
+        process.env.RPC_URL_GATELAYER_MAINNET ||
+        "https://gatelayer-mainnet.gatenode.cc",
       gasMultiplier,
     },
     glue: {
@@ -139,7 +149,9 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     horizen: {
-      url: process.env.RPC_URL_HORIZEN_MAINNET || "https://horizen.calderachain.xyz/http",
+      url:
+        process.env.RPC_URL_HORIZEN_MAINNET ||
+        "https://horizen.calderachain.xyz/http",
       gasMultiplier,
     },
     ink: {
@@ -147,12 +159,13 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     islander: {
-      url: process.env.RPC_URL_ISLANDER_MAINNET || "https://evm-rpc-vana.josephtran.xyz",
+      url:
+        process.env.RPC_URL_ISLANDER_MAINNET ||
+        "https://evm-rpc-vana.josephtran.xyz",
       gasMultiplier,
     },
     moca: {
-      url: process.env.RPC_URL_MOCA_MAINNET ||
-        "https://rpc.mocachain.org",
+      url: process.env.RPC_URL_MOCA_MAINNET || "https://rpc.mocachain.org",
       gasMultiplier,
     },
     nibiru: {
@@ -176,13 +189,14 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     redbelly: {
-      url: process.env.RPC_URL_REDBELLY_MAINNET || "https://governors.mainnet.redbelly.network",
+      url:
+        process.env.RPC_URL_REDBELLY_MAINNET ||
+        "https://governors.mainnet.redbelly.network",
       gasMultiplier,
     },
     rootstock: {
       url:
-        process.env.RPC_URL_ROOTSTOCK_MAINNET ||
-        "https://public-node.rsk.co",
+        process.env.RPC_URL_ROOTSTOCK_MAINNET || "https://public-node.rsk.co",
       gasMultiplier,
     },
     somnia: {
@@ -190,9 +204,7 @@ const hardhatConfig: HardhatUserConfig = {
       chainId: 5031,
     },
     stable: {
-      url:
-        process.env.RPC_URL_STABLE_MAINNET ||
-        "https://rpc.stable.xyz",
+      url: process.env.RPC_URL_STABLE_MAINNET || "https://rpc.stable.xyz",
       gasMultiplier,
     },
     story: {
