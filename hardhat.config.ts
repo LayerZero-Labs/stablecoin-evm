@@ -86,6 +86,10 @@ const hardhatConfig: HardhatUserConfig = {
         "https://rpc.nexus.mainnet.apexfusion.org",
       gasMultiplier,
     },
+    ault: {
+      url: process.env.RPC_URL_AULT_MAINNET || "", // TODO: no public rpc url yet
+      gasMultiplier,
+    },
     bera: {
       url: process.env.RPC_URL_BERA_MAINNET || "https://rpc.berachain-apis.com",
       gasMultiplier,
@@ -209,6 +213,10 @@ const hardhatConfig: HardhatUserConfig = {
     },
     story: {
       url: process.env.RPC_URL_STORY_MAINNET || "https://mainnet.storyrpc.io",
+      gasMultiplier,
+    },
+    subtensorevm: {
+      url: process.env.RPC_URL_SUBTENSOR_EVM_MAINNET || "https://lite.chain.opentensor.ai",
       gasMultiplier,
     },
     superposition: {
