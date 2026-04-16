@@ -216,7 +216,9 @@ const hardhatConfig: HardhatUserConfig = {
       gasMultiplier,
     },
     subtensorevm: {
-      url: process.env.RPC_URL_SUBTENSOR_EVM_MAINNET || "https://lite.chain.opentensor.ai",
+      url:
+        process.env.RPC_URL_SUBTENSOR_EVM_MAINNET ||
+        "https://lite.chain.opentensor.ai",
       gasMultiplier,
     },
     superposition: {
