@@ -192,6 +192,10 @@ const hardhatConfig: HardhatUserConfig = {
       url: "https://phoenix-rpc.plumenetwork.xyz",
       gasMultiplier,
     },
+    rayls: {
+      url: process.env.RPC_URL_RAYLS_MAINNET || "https://mainnet-rpc.rayls.com",
+      gasMultiplier,
+    },
     redbelly: {
       url:
         process.env.RPC_URL_REDBELLY_MAINNET ||
@@ -268,6 +272,7 @@ const hardhatConfig: HardhatUserConfig = {
       // Is not required by blockscout. Can be any non-empty string
       plumephoenix: "abc",
       somnia: "somnia",
+      rayls: "abc",
     },
     customChains: [
       {
@@ -285,6 +290,14 @@ const hardhatConfig: HardhatUserConfig = {
         urls: {
           apiURL: "https://mainnet.somnia.w3us.site/api",
           browserURL: "https://mainnet.somnia.w3us.site",
+        },
+      },
+      {
+        network: "rayls",
+        chainId: 72957,
+        urls: {
+          apiURL: "https://explorer.rayls.com/api",
+          browserURL: "https://explorer.rayls.com",
         },
       },
     ],
