@@ -2,12 +2,16 @@
 
 1. We need Foundry version 0.2.0. Make sure you have it installed.
    [Check more details here](#1-install-foundry-version-020).
-2. **Critical:** Check that all environment variables are correct. Make sure
-   `PROXY_ADMIN_ADDRESS` is a safe multisig address.
-3. Run `make d`, then run `make deploy-verify` or `make deploy` to deploy the
+2. **Critical:** Check that the deployment, token, and role environment
+   variables are correct. Make sure `PROXY_ADMIN_ADDRESS` is a safe multisig
+   address.
+3. Set the chain-specific environment variables in `.env` and make sure the
+   chain is configured in `foundry.toml`.
+   [Check more details here](#3-set-the-chain-specific-configuration).
+4. Run `make d`, then run `make deploy-verify` or `make deploy` to deploy the
    contracts.
-4. Prepare a PR in this repository to keep record of the deployment.
-5. Run `make verify-mainnet`.
+5. Prepare a PR in this repository to keep record of the deployment.
+6. Run `make verify-mainnet`.
 
 ## Step details
 
@@ -39,8 +43,9 @@
 
 ### 2. Check the environment variables
 
-Double-check that all environment variables are correct. In particular, verify
-that `PROXY_ADMIN_ADDRESS` is a safe multisig address.
+Double-check that the deployment, token, and role environment variables are
+correct. In particular, verify that `PROXY_ADMIN_ADDRESS` is a safe multisig
+address.
 
 Fill in the expected value for each environment variable:
 
@@ -71,7 +76,9 @@ needed)
 
 `MASTER_MINTER_ADDRESS`: it must be the deployer address
 
-#### Chain and verifier configuration
+### 3. Set the chain-specific configuration
+
+Set the following values in `.env` for the target chain:
 
 `RPC_URL`: depends on the chain
 
@@ -81,14 +88,24 @@ needed)
 
 `VERIFIER_URL`: depends on the chain
 
-### 3. Deploy the contracts
+Make sure the target chain is configured under `[etherscan]` in `foundry.toml`.
+If it is missing, add an entry with its chain ID and verifier URL:
+
+```toml
+chain_<CHAIN_ID> = { key = "${ETHERSCAN_KEY}", url = "${VERIFIER_URL}", chain = <CHAIN_ID> }
+```
+
+You only need to add the chain to `hardhat.config.ts` if Foundry verification
+fails and you use Hardhat to verify the contracts manually.
+
+### 4. Deploy the contracts
 
 1. Run `make d` to check that everything works.
 2. Run `make deploy-verify` or `make deploy`. If you only run `make deploy`, you
    will need to verify the contracts manually later.
 3. Check in the block explorer that the contracts were deployed and verified.
 
-### 4. Prepare the deployment PR
+### 5. Prepare the deployment PR
 
 1. Open a PR in the
    [LayerZero-Labs/stablecoin-evm](https://github.com/LayerZero-Labs/stablecoin-evm)
@@ -96,7 +113,31 @@ needed)
    deployment artifacts. Make sure you are opening the PR in the correct
    repository.
 
-### 5. Run the mainnet verification
+   create a file named `chainName.json` with this info
+
+```json
+{
+  "SignatureChecker": {
+    "contractAddress": "",
+    "contractCreationTxHash": ""
+  },
+  "FiatTokenV2_2": {
+    "contractAddress": "",
+    "contractCreationTxHash": ""
+  },
+  "FiatTokenProxy": {
+    "contractAddress": "",
+    "contractCreationTxHash": ""
+  },
+  "ProxyAdmin": {
+    "contractAddress": "",
+    "contractCreationTxHash": ""
+  },
+  "rpcUrl": ""
+}
+```
+
+### 6. Run the mainnet verification
 
 Run `make verify-mainnet`. This runs:
 
