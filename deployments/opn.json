@@ -1,0 +1,19 @@
+{
+  "SignatureChecker": {
+    "contractAddress": "0x0A06aC031bf6E3D7593c7566E49D28659a6381F4",
+    "contractCreationTxHash": "0xc3c81fab45a1508ced81b5ed860b320cd29bdd297e4cb6f5af07485ea3c7b7c0"
+  },
+  "FiatTokenV2_2": {
+    "contractAddress": "0x564770837Ef8bbF077cFe54E5f6106538c815B22",
+    "contractCreationTxHash": "0x64d3b724fc257311c3dfbc0d76b8907cc7476fcbdadc875819ace4202dd4ecfc"
+  },
+  "FiatTokenProxy": {
+    "contractAddress": "0x08C49257767c1f92634A9cDbF0663Af0356a472A",
+    "contractCreationTxHash": "0x30db26c94b740f3b3806b34c49ed13d34800762b1a7be38626c30a168ff058ad"
+  },
+  "ProxyAdmin": {
+    "contractAddress": "0x12a272A581feE5577A5dFa371afEB4b2F3a8C2F8",
+    "contractCreationTxHash": "0x187ca88ffffe6b394122a8d94432a412768410d841e77d7b86a761f7fc66ec79"
+  },
+  "rpcUrl": "https://mainnet-rpc3.iopn.tech"
+}
