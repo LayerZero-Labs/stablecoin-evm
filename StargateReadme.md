@@ -139,6 +139,26 @@ fails and you use Hardhat to verify the contracts manually.
 
 ### 6. Run the mainnet verification
 
+Before running `make verify-mainnet`, create the required Circle verification
+input file from the template:
+
+```sh
+cp verification_artifacts/input.template.json verification_artifacts/input.json
+```
+
+Fill `verification_artifacts/input.json` with the deployed contract addresses,
+contract creation transaction hashes, and `rpcUrl`. The verification scripts read
+this exact file path.
+
+If the metadata files are missing, generate them with:
+
+```sh
+make gen
+```
+
+For the full Circle verification workflow, see
+[`doc/bridged_asset_automated_verification.md`](./doc/bridged_asset_automated_verification.md).
+
 Run `make verify-mainnet`. This runs:
 
 - `yarn hardhat run scripts/verifyBridgedTokenBytecode.ts --network mainnet` ->
