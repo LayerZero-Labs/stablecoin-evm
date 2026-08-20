@@ -147,8 +147,8 @@ cp verification_artifacts/input.template.json verification_artifacts/input.json
 ```
 
 Fill `verification_artifacts/input.json` with the deployed contract addresses,
-contract creation transaction hashes, and `rpcUrl`. The verification scripts read
-this exact file path.
+contract creation transaction hashes, and `rpcUrl`. The verification scripts
+read this exact file path.
 
 If the metadata files are missing, generate them with:
 
