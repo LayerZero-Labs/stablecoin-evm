@@ -119,6 +119,9 @@ make gen-info Chain=opn
 This reads the latest broadcast for the chain configured by `RPC_URL` and
 generates `deployments/<chain-name>.json`.
 
+> **Note:** Verify that the generated file contains the correct deployment
+> information for the target chain before opening the PR.
+
 ### 6. Prepare the deployment PR
 
 1. Open a PR in the
