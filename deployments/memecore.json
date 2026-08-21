@@ -1,0 +1,19 @@
+{
+  "SignatureChecker": {
+    "contractAddress": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+    "contractCreationTxHash": "0x7c0330f3e9d52beb7f0dfa0cae683ba4aaf01b25870924826436df8c69e72488"
+  },
+  "FiatTokenV2_2": {
+    "contractAddress": "0x0cEb237E109eE22374a567c6b09F373C73FA4cBb",
+    "contractCreationTxHash": "0x151bfdefd45e6b033e09f533da479c84aae5e1291584f0a62d306b145f1a017c"
+  },
+  "FiatTokenProxy": {
+    "contractAddress": "0x8a2B28364102Bea189D99A475C494330Ef2bDD0B",
+    "contractCreationTxHash": "0x7c74dfd3b4606aa5f2a7a323ad82120c00a9c846f9ace40efafc042e2f75ff66"
+  },
+  "ProxyAdmin": {
+    "contractAddress": "0xda6087E69C51E7D31b6DBAD276a3c44703DFdCAd",
+    "contractCreationTxHash": "0x1d81e2186a0ccf087515e5a44285e2b0ad1097fc2b4d150fe1382efa5bf1babf"
+  },
+  "rpcUrl": "https://rpc.memecore.net"
+}
