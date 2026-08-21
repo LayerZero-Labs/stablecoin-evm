@@ -1,6 +1,8 @@
 include .env
 export
 
+.PHONY: d deploy-verify deploy verify gen-info gen verify-mainnet
+
 # fill the rpc url and etherscan api key
 # !need to  test the scripts and fix them on the next deployment
 d:
@@ -14,6 +16,9 @@ deploy:
 
 verify:
 	forge verify-contract --rpc-url $(RPC_URL) $(ADDRESS) contracts/v2/FiatTokenV2_2.sol:FiatTokenV2_2 --etherscan-api-key $(ETHERSCAN_KEY) --verifier-url $(VERIFIER_URL) --watch
+
+gen-info:
+	@node ./scripts/deploy/generate-deployment-info.js
 
 gen:
 	cat artifacts/foundry/SignatureChecker.sol/SignatureChecker.json | jq -jr '.rawMetadata' > verification_artifacts/SignatureChecker.json

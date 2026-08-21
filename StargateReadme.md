@@ -10,8 +10,10 @@
    [Check more details here](#3-set-the-chain-specific-configuration).
 4. Run `make d`, then run `make deploy-verify` or `make deploy` to deploy the
    contracts.
-5. Prepare a PR in this repository to keep record of the deployment.
-6. Run `make verify-mainnet`.
+5. Run `make gen-info Chain=<chain-name>` to generate the deployment
+   information.
+6. Prepare a PR in this repository to keep record of the deployment.
+7. Run `make gen`, then run `make verify-mainnet`.
 
 ## Step details
 
@@ -80,7 +82,8 @@ needed)
 
 Set the following values in `.env` for the target chain:
 
-`RPC_URL`: depends on the chain
+`RPC_URL`: depends on the chain. It must be a public URL without credentials or
+query parameters because `make gen-info` writes it to the deployment artifacts.
 
 `ETHERSCAN_KEY`: depends on the chain
 
@@ -105,7 +108,24 @@ fails and you use Hardhat to verify the contracts manually.
    will need to verify the contracts manually later.
 3. Check in the block explorer that the contracts were deployed and verified.
 
-### 5. Prepare the deployment PR
+### 5. Generate the deployment information
+
+Run the following command, replacing `opn` with the chain name:
+
+```sh
+make gen-info Chain=opn
+```
+
+This reads the latest broadcast for the chain configured by `RPC_URL` and
+generates:
+
+- `deployments/<chain-name>.json`
+- `verification_artifacts/input.json`
+
+The verification input is generated locally and ignored by Git to prevent a
+later deployment from accidentally verifying against stale chain information.
+
+### 6. Prepare the deployment PR
 
 1. Open a PR in the
    [LayerZero-Labs/stablecoin-evm](https://github.com/LayerZero-Labs/stablecoin-evm)
@@ -113,44 +133,9 @@ fails and you use Hardhat to verify the contracts manually.
    deployment artifacts. Make sure you are opening the PR in the correct
    repository.
 
-   create a file named `chainName.json` with this info
+### 7. Run the mainnet verification
 
-```json
-{
-  "SignatureChecker": {
-    "contractAddress": "",
-    "contractCreationTxHash": ""
-  },
-  "FiatTokenV2_2": {
-    "contractAddress": "",
-    "contractCreationTxHash": ""
-  },
-  "FiatTokenProxy": {
-    "contractAddress": "",
-    "contractCreationTxHash": ""
-  },
-  "ProxyAdmin": {
-    "contractAddress": "",
-    "contractCreationTxHash": ""
-  },
-  "rpcUrl": ""
-}
-```
-
-### 6. Run the mainnet verification
-
-Before running `make verify-mainnet`, create the required Circle verification
-input file from the template:
-
-```sh
-cp verification_artifacts/input.template.json verification_artifacts/input.json
-```
-
-Fill `verification_artifacts/input.json` with the deployed contract addresses,
-contract creation transaction hashes, and `rpcUrl`. The verification scripts
-read this exact file path.
-
-If the metadata files are missing, generate them with:
+Generate the contract metadata files required by the verification scripts:
 
 ```sh
 make gen
