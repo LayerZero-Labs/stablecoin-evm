@@ -13,7 +13,7 @@
 5. Run `make gen-info Chain=<chain-name>` to generate the deployment
    information.
 6. Prepare a PR in this repository to keep record of the deployment.
-7. Run `make gen`, then run `make verify-mainnet`.
+7. Run `make full-verify Chain=<chain-name>`.
 
 ## Step details
 
@@ -117,13 +117,7 @@ make gen-info Chain=opn
 ```
 
 This reads the latest broadcast for the chain configured by `RPC_URL` and
-generates:
-
-- `deployments/<chain-name>.json`
-- `verification_artifacts/input.json`
-
-The verification input is generated locally and ignored by Git to prevent a
-later deployment from accidentally verifying against stale chain information.
+generates `deployments/<chain-name>.json`.
 
 ### 6. Prepare the deployment PR
 
@@ -132,19 +126,30 @@ later deployment from accidentally verifying against stale chain information.
    repository against the `stargate-deployment` branch to keep a record of the
    deployment artifacts. Make sure you are opening the PR in the correct
    repository.
+2. The PR should contain only the deployment information and any relevant chain
+   configuration. Do not include the `info.json` file.
 
-### 7. Run the mainnet verification
+### 7. Run the full verification
 
-Generate the contract metadata files required by the verification scripts:
+Run the following command, replacing `opn` with the chain name:
 
 ```sh
-make gen
+make full-verify Chain=opn
 ```
+
+This command:
+
+1. Copies `deployments/<chain-name>.json` to
+   `verification_artifacts/input.json`.
+2. Runs `make gen`.
+3. Runs `make verify-mainnet`.
+4. Removes all generated files from `verification_artifacts`, leaving only
+   `input.template.json`.
 
 For the full Circle verification workflow, see
 [`doc/bridged_asset_automated_verification.md`](./doc/bridged_asset_automated_verification.md).
 
-Run `make verify-mainnet`. This runs:
+`make verify-mainnet` runs:
 
 - `yarn hardhat run scripts/verifyBridgedTokenBytecode.ts --network mainnet` ->
   Circle's deployment validation in the pipeline.
